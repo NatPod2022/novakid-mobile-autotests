@@ -40,6 +40,8 @@ public class BasePages {
     public BuySubscriptionTrialPage buySubscriptionTrialPage;
     public OpenIntercomPage openIntercomPage;
     public OldBonusPage oldBonusPage;
+    public NewScheduleUIPage newScheduleUIPage;
+    public CalendarSyncAccountPage calendarSyncAccountPage;
 
     public void initPages(AppiumDriver driver) {
         allowPermission = new AllowPermissionPage(driver);
@@ -73,5 +75,7 @@ public class BasePages {
         buySubscriptionTrialPage = new BuySubscriptionTrialPage(driver);
         openIntercomPage = new OpenIntercomPage(driver);
         oldBonusPage = new OldBonusPage(driver);
+        newScheduleUIPage = new NewScheduleUIPage(driver);
+        calendarSyncAccountPage = new CalendarSyncAccountPage(driver);
     }
 }
