@@ -47,6 +47,8 @@ public class BasePages {
     public GoogleSynchronizeSchedulePage googleSynchronizeSchedulePage;
     public OpenGoogleSyncSchedulePage openGoogleSyncSchedulePage;
     public GoogleSyncOpenFromSchedulePage googleSyncOpenFromSchedulePage;
+    public ObserveUpcomingClassesPage observeUpcomingClassesPage;
+    public OpenClassDetailsPage openClassDetailsPage;
 
     public void initPages(AppiumDriver driver) {
         allowPermission = new AllowPermissionPage(driver);
@@ -87,5 +89,7 @@ public class BasePages {
         googleSynchronizeSchedulePage = new GoogleSynchronizeSchedulePage(driver);
         openGoogleSyncSchedulePage = new OpenGoogleSyncSchedulePage(driver);
         googleSyncOpenFromSchedulePage = new GoogleSyncOpenFromSchedulePage(driver);
+        observeUpcomingClassesPage = new ObserveUpcomingClassesPage(driver);
+        openClassDetailsPage = new OpenClassDetailsPage(driver);
     }
 }
