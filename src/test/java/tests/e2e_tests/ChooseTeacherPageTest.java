@@ -2,6 +2,7 @@ package tests.e2e_tests;
 
 import base.AppiumBaseTest;
 import base.BasePages;
+import configuration.TestUsers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -26,10 +27,11 @@ class ChooseTeacherPageTest extends AppiumBaseTest {
         // Click "Login with Password"
         pages.loginStepByPhone.getLoginWithPasswordPhoneButton().click();
         // Enter email and password
+        TestUsers.TestUser user = TestUsers.schedule();
         pages.loginStepByEmail.getLogInInputField().click();
-        pages.loginStepByEmail.getLogInInputField().sendKeys("Auto_Test_schedule@mail.ru");
+        pages.loginStepByEmail.getLogInInputField().sendKeys(user.email());
         pages.loginWithPasswordEmail.getPasswordInputField().click();
-        pages.loginWithPasswordEmail.getPasswordInputField().sendKeys("12345678");
+        pages.loginWithPasswordEmail.getPasswordInputField().sendKeys(user.password());
         // Click "Sign In"
         pages.loginWithPasswordPhone.getSignInPhoneButton().click();
         // Click on Schedule tab

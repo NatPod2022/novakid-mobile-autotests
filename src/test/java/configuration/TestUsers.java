@@ -27,7 +27,8 @@ public final class TestUsers {
     /** User who has previously cancelled a trial; used for post-cancel-trial flows. */
     public static TestUser afterCancelTrial() {
         return new TestUser(
-                value("test.user.afterCancelTrial.email", "TEST_USER_AFTER_CANCEL_TRIAL_EMAIL", "np_test@mail.nv"),
+                //value("test.user.afterCancelTrial.email", "TEST_USER_AFTER_CANCEL_TRIAL_EMAIL", "np_test@mail.nv"),
+                value("test.user.afterCancelTrial.email", "TEST_USER_AFTER_CANCEL_TRIAL_EMAIL", "polabialoskorska36+12@gmail.com"),
                 value("test.user.afterCancelTrial.password", "TEST_USER_AFTER_CANCEL_TRIAL_PASSWORD", "12345678")
         );
     }
@@ -38,7 +39,8 @@ public final class TestUsers {
      */
     public static TestUser schedule() {
         return new TestUser(
-                value("test.user.schedule.email", "TEST_USER_SCHEDULE_EMAIL", "Auto_Test_schedule@mail.ru"),
+                //value("test.user.schedule.email", "TEST_USER_SCHEDULE_EMAIL", "Auto_Test_schedule@mail.ru"),
+                value("test.user.schedule.email", "TEST_USER_SCHEDULE_EMAIL", "Npodorozhkina+7379@gmail.com"),
                 value("test.user.schedule.password", "TEST_USER_SCHEDULE_PASSWORD", "12345678")
         );
     }

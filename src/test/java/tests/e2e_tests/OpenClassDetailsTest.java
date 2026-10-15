@@ -38,7 +38,7 @@ class OpenClassDetailsTest extends AppiumBaseTest {
         // Click on the first upcoming lesson tile (recurring Sunday 18:00 lesson — Nat TEST + Vika)
         pages.observeUpcomingClassesPage.getIndividualLessonNatTestVika().click();
         // Wait for Class details screen to render
-        Thread.sleep(2_000);
+        Thread.sleep(1_000);
         // Verify top section of Class details
         pages.openClassDetailsPage.getBackButton();
         pages.openClassDetailsPage.getLessonTitle();
