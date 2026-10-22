@@ -9,7 +9,7 @@ import interactions.BaseActions;
 /** Subscription / trial package screen. iOS + Android via accessibility id. */
 public class SubscriptionTrialPage extends BaseActions {
 
-    public final By backButton = AppiumBy.accessibilityId("Back");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By titlePackage = AppiumBy.accessibilityId("Package");
     public final By titleStandardPackage = AppiumBy.accessibilityId("Standard Package");
     public final By titlePremium = AppiumBy.accessibilityId("Premium");
@@ -17,7 +17,7 @@ public class SubscriptionTrialPage extends BaseActions {
     public final By textOr = AppiumBy.accessibilityId("or");
     public final By titleStandard = AppiumBy.accessibilityId("Standard");
     public final By price2nd = AppiumBy.accessibilityId("1");
-    public final By topUpBalanceButton = AppiumBy.accessibilityId("Top up balance");
+    public final By topUpBalanceButton = AppiumBy.accessibilityId("balance_info.top_up_balance_button");
 
     public SubscriptionTrialPage(AppiumDriver driver) {
         super(driver);

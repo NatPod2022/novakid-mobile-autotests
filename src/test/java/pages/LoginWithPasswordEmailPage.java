@@ -10,9 +10,9 @@ import interactions.BaseActions;
 public class LoginWithPasswordEmailPage extends BaseActions {
 
     public final By passwordInputField = AppiumBy.accessibilityId("Password");
-    public final By signInButton = AppiumBy.accessibilityId("Sign in");
-    public final By loginWithAccessCodeButton = AppiumBy.accessibilityId("Sign in with access code");
-    public final By forgotPasswordButton = AppiumBy.accessibilityId("I forgot password");
+    public final By signInButton = AppiumBy.accessibilityId("login.submit_button");
+    public final By loginWithAccessCodeButton = AppiumBy.accessibilityId("login.access_code_mode_button");
+    public final By forgotPasswordButton = AppiumBy.accessibilityId("login.forgot_password_link");
 
     public LoginWithPasswordEmailPage(AppiumDriver driver) {
         super(driver);

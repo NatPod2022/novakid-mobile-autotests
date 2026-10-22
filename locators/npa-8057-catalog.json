@@ -1,0 +1,1226 @@
+{
+  "schemaVersion": 1,
+  "issue": "NPA-8057",
+  "pr": "https://bitbucket.org/novakidschool/novakid-parent-app/pull-requests/471/diff",
+  "reviewedAt": "2026-10-22",
+  "reviewedCommitShort": "a9812869",
+  "coverage": "Selected confirmed identifiers relevant to current Page Objects and future mobile tests, including membership subscriptions. Not an exhaustive copy of the 519-file PR.",
+  "validation": "Source reviewed; not verified on device. Do not treat compilation as an E2E pass.",
+  "sourceRoot": "packages/shared/lib/",
+  "usageNotes": [
+    "Use sourceRoot + source to locate the Dart file in PR #471.",
+    "Static identifiers can be used with AppiumBy.accessibilityId on iOS; Android may require resource-id strategy.",
+    "Dynamic patterns require actual backend keys. Do not substitute display names or assumed level numbers for backend IDs.",
+    "keyedSemanticsId(role, null) returns role without a suffix; normal keyed IDs are role + '.' + key.",
+    "phone_input.dart tags a container containing country selector and input, not the editable field itself.",
+    "CalendarDisconnectedContent uses connect_google_button for fromAccount=true and add_all_lessons_button otherwise.",
+    "logout_dialog button IDs are derived by BaseDialog; confirmed by base_dialog_semantics_test.dart.",
+    "The account.* and parent_profile.* screens are distinct; do not interchange their identifiers.",
+    "The fixed teacher.book_button / teacher.favorite_button on teacher profile pages are distinct from keyed card-action IDs.",
+    "Native iOS alerts, external Google OAuth and Intercom content are outside the PR migration.",
+    "Existing text assertions are retained where the PR has no confirmed ID; replacing a title with a button ID would change test meaning."
+  ],
+  "sources": [
+    {
+      "source": "common/data/core/theme/app_theme.dart",
+      "ids": [
+        "navigation.back_button",
+        "navigation.close_button"
+      ]
+    },
+    {
+      "source": "features/onboarding_slides_page/presentation/widgets/welcome_buttons.dart",
+      "ids": [
+        "welcome.sign_in_button",
+        "welcome.try_for_free_button"
+      ]
+    },
+    {
+      "source": "features/onboarding_slides_page/onboarding_slides_page_content.dart",
+      "ids": [
+        "onboarding.back_button",
+        "onboarding.skip_button",
+        "onboarding.next_button",
+        "onboarding.sign_in_button",
+        "onboarding.try_for_free_button"
+      ]
+    },
+    {
+      "source": "features/sign_in/social_media/presentation/widgets/prepared.dart",
+      "ids": [
+        "login.google_button",
+        "login.apple_button",
+        "login.email_phone_button",
+        "login.sign_up_link"
+      ]
+    },
+    {
+      "source": "features/sign_in/legacy/presentation/widgets/forms/sign_in_form.dart",
+      "ids": [
+        "login.phone_input",
+        "login.password_visibility_button",
+        "login.submit_button",
+        "login.access_code_mode_button",
+        "login.forgot_password_link",
+        "login.continue_button",
+        "login.password_mode_button",
+        "login.wechat_button"
+      ]
+    },
+    {
+      "source": "features/sign_in/legacy/presentation/widgets/sign_in_field.dart",
+      "ids": [
+        "login.email_tab",
+        "login.phone_tab"
+      ]
+    },
+    {
+      "source": "features/sign_in/legacy/presentation/widgets/email_domain_suggestion_view.dart",
+      "ids": [
+        "login.email_suggestion_link"
+      ]
+    },
+    {
+      "source": "features/sign_in/legacy/presentation/widgets/confirm/pin_confirm.dart",
+      "ids": [
+        "otp.resend_timer",
+        "otp.resend_button"
+      ]
+    },
+    {
+      "source": "features/sign_in/legacy/presentation/widgets/forms/confirm_code_form.dart",
+      "ids": [
+        "otp.change_contact_button"
+      ]
+    },
+    {
+      "source": "features/account/account_page/presentation/widgets/menu_items/personal_information_menu_item.dart",
+      "ids": [
+        "account.personal_information_button"
+      ]
+    },
+    {
+      "source": "features/account/account_page/presentation/widgets/menu_items/balance_history_menu_item.dart",
+      "ids": [
+        "account.balance_history_button"
+      ]
+    },
+    {
+      "source": "features/account/account_page/presentation/widgets/menu_items/calendar_sync_menu_item.dart",
+      "ids": [
+        "account.calendar_sync_button"
+      ]
+    },
+    {
+      "source": "features/account/account_page/presentation/widgets/menu_items/change_password_menu_item.dart",
+      "ids": [
+        "settings.change_password_button"
+      ]
+    },
+    {
+      "source": "features/account/account_page/presentation/widgets/menu_items/privacy_policy_menu_item.dart",
+      "ids": [
+        "settings.privacy_link",
+        "settings.terms_link"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/parent_content_page.dart",
+      "ids": [
+        "navigation.home_tab",
+        "navigation.schedule_tab",
+        "navigation.kids_area_tab",
+        "navigation.achievements_tab",
+        "navigation.monthly_challenge_tab",
+        "navigation.summer_challenge_tab",
+        "navigation.winter_challenge_tab",
+        "navigation.bonuses_tab",
+        "navigation.referral_tab",
+        "navigation.support_tab"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_app_bar.dart",
+      "ids": [
+        "navigation.profile_menu_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_trial_failed.dart",
+      "ids": [
+        "home.book_trial_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/drawer/widgets/menu.dart",
+      "ids": [
+        "profile_menu.account_button",
+        "profile_menu.subscription_button",
+        "profile_menu.bonuses_button",
+        "profile_menu.library_button",
+        "profile_menu.speaking_practice_button",
+        "profile_menu.ambassador_button",
+        "profile_menu.help_button",
+        "profile_menu.courses_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/drawer/widgets/students.dart",
+      "ids": [
+        "profile_menu.add_student_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/drawer/widgets/header.dart",
+      "ids": [
+        "profile_menu.close_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/drawer/widgets/log_out.dart",
+      "ids": [
+        "profile_menu.logout_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/drawer/widgets/referral_banner.dart",
+      "ids": [
+        "profile_menu.referral_banner",
+        "profile_menu.referral_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_subscription/dashboard_subscription.dart",
+      "ids": [
+        "home.subscription_card",
+        "home.subscription_see_more_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_subscription/membership/additional_subs_info.dart",
+      "ids": [
+        "home.membership_book_more_button",
+        "home.membership_paused_button",
+        "home.membership_future_pause_button",
+        "home.membership_canceled_button",
+        "home.buy_subscription_button",
+        "home.membership_failed_payment_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_subscription/membership/dashboard_membership_subscription.dart",
+      "ids": [
+        "home.membership_view_details_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_subscription/widgets/after_trial_no_subscription_banner.dart",
+      "ids": [
+        "home.after_trial.buy_subscription_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_subscription/widgets/item_subscription_classes.dart",
+      "ids": [
+        "home.lesson_balance_value"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_subscription/widgets/item_subscription_date.dart",
+      "ids": [
+        "home.subscription_date_item"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard_action_button/dashboard_action_button.dart",
+      "ids": [
+        "home.top_up_balance_button",
+        "home.book_unbooked_lessons_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/upcomming_classes/widgets/upcoming_classes_loaded/widgets/common/dashboard_book_lesson_button.dart",
+      "ids": [
+        "home.book_lesson_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/upcomming_classes/widgets/upcoming_classes_loaded/widgets/upcoming_class/widgets/legacy_class.dart",
+      "ids": [
+        "home.next_lesson_card",
+        "lesson.more_button",
+        "home.join_lesson_button",
+        "home.calendar_sync_button",
+        "home.add_to_calendar_button",
+        "home.next_lesson_before_lesson_tab",
+        "home.next_lesson_materials_tab"
+      ]
+    },
+    {
+      "source": "features/add_child_page/presentation/add_child_page_content.dart",
+      "ids": [
+        "add_child.gender_female_option",
+        "add_child.gender_male_option",
+        "add_child.submit_button"
+      ]
+    },
+    {
+      "source": "presentation/widgets/birthdate_select.dart",
+      "ids": [
+        "profile.student_birth_date_selector"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/personal_info/personal_info_page_content.dart",
+      "ids": [
+        "profile.substitute_teacher_yes_option",
+        "profile.substitute_teacher_no_option",
+        "personal_info.remove_account_button",
+        "personal_info.retry_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/parent_profile_page_content.dart",
+      "ids": [
+        "parent_profile.personal_information_button",
+        "parent_profile.edit_children_button",
+        "parent_profile.balance_history_button",
+        "parent_profile.referral_program_button",
+        "settings.support_email_link"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/manager_password/set_password/set_password_page_content.dart",
+      "ids": [
+        "set_password.continue_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/manager_password/set_password/tabs/input_new_password/input_new_password_page.dart",
+      "ids": [
+        "set_password.generate_password_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/manager_password/set_password/tabs/input_code/input_code_page.dart",
+      "ids": [
+        "set_password.resend_code_button",
+        "set_password.change_contact_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/manager_password/set_password/tabs/choice_provider/choice_provider_page.dart",
+      "ids": [
+        "set_password.phone_option",
+        "set_password.email_option"
+      ]
+    },
+    {
+      "source": "presentation/page/parent_profile/manager_password/change_password/change_password_page_content.dart",
+      "ids": [
+        "change_password.forgot_password_link",
+        "change_password.generate_password_button",
+        "change_password.submit_button"
+      ]
+    },
+    {
+      "source": "features/restore_password/create_password_page/presentation/widgets/content.dart",
+      "ids": [
+        "password_reset.new_password_visibility_button",
+        "password_reset.confirm_password_visibility_button",
+        "password_reset.save_button"
+      ]
+    },
+    {
+      "source": "features/restore_password/restore_password_page/presentation/restore_password_page_content.dart",
+      "ids": [
+        "password_reset.submit_button"
+      ]
+    },
+    {
+      "source": "features/restore_password/restore_password_success_page/restore_password_success.dart",
+      "ids": [
+        "password_reset.back_to_login_button"
+      ]
+    },
+    {
+      "source": "features/calendar_sync/presentation/widgets/calendar_disconnected_content.dart",
+      "ids": [
+        "calendar_sync.connect_google_button",
+        "calendar_sync.add_all_lessons_button"
+      ]
+    },
+    {
+      "source": "features/calendar_sync/presentation/widgets/calendar_sync_single_lesson_add_to_calendar.dart",
+      "ids": [
+        "calendar_sync.add_single_lesson_button"
+      ]
+    },
+    {
+      "source": "features/calendar_sync/presentation/widgets/google_calendar_sync_button.dart",
+      "ids": [
+        "calendar_sync.google_sync_button"
+      ]
+    },
+    {
+      "source": "features/calendar_sync/presentation/widgets/calendar_disconnect_button.dart",
+      "ids": [
+        "calendar_sync.disconnect_button"
+      ]
+    },
+    {
+      "source": "features/calendar_sync/presentation/calendar_disconnect_confirm_page.dart",
+      "ids": [
+        "calendar_disconnect.close_button",
+        "calendar_disconnect.confirm_button",
+        "calendar_disconnect.cancel_button"
+      ]
+    },
+    {
+      "source": "features/calendar_sync/presentation/calendar_sync_success.dart",
+      "ids": [
+        "calendar_sync_success.close_button",
+        "calendar_sync_success.done_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/schedule_new/widgets/schedule_google_calendar_sync.dart",
+      "ids": [
+        "schedule.calendar_sync_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/schedule_new/phone/schedule_phone.dart",
+      "ids": [
+        "schedule.lesson_period_selector",
+        "schedule.upcoming_tab",
+        "schedule.past_tab"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/schedule_new/book_lesson_button.dart",
+      "ids": [
+        "schedule.book_lessons_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/schedule_new/widgets/book_bottom_sheet.dart",
+      "ids": [
+        "schedule.book_sheet.individual_button",
+        "schedule.book_sheet.group_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/schedule_new/widgets/schedule_app_bar_action.dart",
+      "ids": [
+        "schedule.group_schedule_button"
+      ]
+    },
+    {
+      "source": "features/teacher/teacher_schedule/presentation/teacher_schedule_page_content.dart",
+      "ids": [
+        "teacher_schedule.weekly_tab",
+        "teacher_schedule.one_time_tab"
+      ]
+    },
+    {
+      "source": "features/teacher/teacher_schedule/presentation/no_suitable_time_panel.dart",
+      "ids": [
+        "teacher_schedule.no_suitable_time_button"
+      ]
+    },
+    {
+      "source": "features/teacher/teacher_schedule/presentation/teacher_confirmation_page.dart",
+      "ids": [
+        "teacher_confirmation.confirm_button"
+      ]
+    },
+    {
+      "source": "presentation/page/class_add/presentation/widgets/class_add_scaffold.dart",
+      "ids": [
+        "booking.favorite_teachers_button",
+        "booking.filters_button"
+      ]
+    },
+    {
+      "source": "presentation/page/class_add/presentation/widgets/fast_filter.dart",
+      "ids": [
+        "booking.student_selector",
+        "booking.reset_filters_button"
+      ]
+    },
+    {
+      "source": "presentation/widgets/teacher_search_options.dart",
+      "ids": [
+        "booking.student_selector",
+        "weekly_booking.enabled_switch",
+        "booking.book_by_time_switch",
+        "booking.time_selector"
+      ]
+    },
+    {
+      "source": "features/class_details/presentation/widgets/upcoming_class/widgets/actions_widget.dart",
+      "ids": [
+        "lesson.join_button",
+        "lesson.reschedule_button",
+        "lesson.cancel_button",
+        "lesson_cancellation.penalty_dialog.cancel_button",
+        "lesson_cancellation.penalty_dialog.confirm_button"
+      ]
+    },
+    {
+      "source": "features/class_details/presentation/widgets/completed/widgets/class_details_homework.dart",
+      "ids": [
+        "lesson.homework_button"
+      ]
+    },
+    {
+      "source": "features/class_details/presentation/widgets/completed/widgets/completed_scaffold.dart",
+      "ids": [
+        "lesson.recording_button"
+      ]
+    },
+    {
+      "source": "features/classes_action/presentation/widgets/dialogs/class_delete_one_time_dialog.dart",
+      "ids": [
+        "lesson_cancellation.dialog.close_button",
+        "lesson_cancellation.confirm_button",
+        "lesson_cancellation.keep_lesson_button"
+      ]
+    },
+    {
+      "source": "features/classes_action/presentation/widgets/class_reschedule_success_page.dart",
+      "ids": [
+        "reschedule_success.go_to_schedule_button",
+        "reschedule_success.close_button"
+      ]
+    },
+    {
+      "source": "features/balance_info_page/presentation/widgets/packages_info.dart",
+      "ids": [
+        "balance_info.top_up_balance_button"
+      ]
+    },
+    {
+      "source": "features/balance_info_page/presentation/widgets/default_payment_method/presenter/widgets/card/card_method.dart",
+      "ids": [
+        "payment.update_card_button"
+      ]
+    },
+    {
+      "source": "features/balance_info_page/presentation/widgets/default_payment_method/presenter/widgets/undefined.dart",
+      "ids": [
+        "payment.add_card_button"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/parameters/teacher_category_parameter_widget.dart",
+      "ids": [
+        "purchase.teacher_category_selector"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/parameters/subscription_period_parameter_widget.dart",
+      "ids": [
+        "purchase.duration_selector"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/parameters/lessons_per_week_parameter_widget.dart",
+      "ids": [
+        "purchase.lessons_per_week_selector"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/monthly/choose_billing_type_widget.dart",
+      "ids": [
+        "purchase.monthly_payment_option",
+        "purchase.full_payment_option"
+      ]
+    },
+    {
+      "source": "common/presentation/widgets/buy_subscription/presenter/widgets/start_date/start_date.dart",
+      "ids": [
+        "purchase.start_immediately_option",
+        "purchase.start_date_option"
+      ]
+    },
+    {
+      "source": "common/presentation/widgets/buy_subscription/presenter/widgets/start_date/widgets/choice_date.dart",
+      "ids": [
+        "purchase.start_date_selector"
+      ]
+    },
+    {
+      "source": "common/presentation/widgets/buy_subscription/presenter/widgets/lessons_per_week/lessons_per_week.dart",
+      "ids": [
+        "purchase.decrease_lessons_button",
+        "purchase.increase_lessons_button"
+      ]
+    },
+    {
+      "source": "common/presentation/widgets/buy_subscription_button/presenter/confirm_and_pay.dart",
+      "ids": [
+        "payment.pay_button"
+      ]
+    },
+    {
+      "source": "common/presentation/widgets/buy_subscription_button/presenter/save_and_pay_later_button.dart",
+      "ids": [
+        "payment.save_and_pay_later_button"
+      ]
+    },
+    {
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/dashboard-buy-subscription/dashboard-buy-item/widgets/promocode.dart",
+      "ids": [
+        "purchase_summary.apply_promo_button",
+        "purchase_summary.reset_promo_button",
+        "payment.remove_promo_button"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/choose_payment_method/choose_payment_method_widget.dart",
+      "ids": [
+        "payment.method_selector"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_buy/widgets/summary/next_period_subscription_summary_info.dart",
+      "ids": [
+        "purchase_summary.expand_button"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/bullet_point_stepper/bullet_point_stepper.dart",
+      "ids": [
+        "purchase_summary.payment_timeline_details_link"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/discount/new_subscription_discount.dart",
+      "ids": [
+        "purchase_summary.promo_code_option"
+      ]
+    },
+    {
+      "source": "features/subscription_change/widgets/subscription_parameters/widgets/use_bonuses.dart",
+      "ids": [
+        "purchase_summary.use_bonuses_option"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/buttons/buy_subscription_button.dart",
+      "ids": [
+        "subscription.buy_button"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/buttons/cancel_subscription_button.dart",
+      "ids": [
+        "subscription.cancel_button"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/buttons/pause_subscription_button.dart",
+      "ids": [
+        "subscription.pause_button"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/pay_method_and_invoices.dart",
+      "ids": [
+        "subscription.billing_details_button"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/subscription_content.dart",
+      "ids": [
+        "subscription.student_selector"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/subscription_credit_info_button.dart",
+      "ids": [
+        "subscription.credit_info_button"
+      ]
+    },
+    {
+      "source": "features/membership/subscription_management/presentation/widgets/banners/failed_auto_payment_banner.dart",
+      "ids": [
+        "payment.retry_button"
+      ]
+    },
+    {
+      "source": "features/membership/resume_reactivate/presentation/widget/reactivate_button_widget.dart",
+      "ids": [
+        "subscription.renew_button"
+      ]
+    },
+    {
+      "source": "features/membership/resume_reactivate/presentation/widget/resume_button_widget.dart",
+      "ids": [
+        "subscription.resume_button"
+      ]
+    },
+    {
+      "source": "features/membership/update/presentation/update_plan_button.dart",
+      "ids": [
+        "subscription.change_plan_button"
+      ]
+    },
+    {
+      "source": "features/membership/update/presentation/update_addons_button.dart",
+      "ids": [
+        "subscription.manage_addons_button"
+      ]
+    },
+    {
+      "source": "features/membership/update/presentation/widgets/update_subscription_webview.dart",
+      "ids": [
+        "update_subscription.close_button",
+        "update_subscription.dialog.confirm_button"
+      ]
+    },
+    {
+      "source": "features/membership/cancel_membership/presentation/widgets/cancel_action_buttons.dart",
+      "ids": [
+        "subscription_cancellation.confirm_button",
+        "subscription_cancellation.keep_button"
+      ]
+    },
+    {
+      "source": "features/membership/pause/presentation/widgets/pause_subscription_view.dart",
+      "ids": [
+        "subscription_pause.start_date_selector",
+        "subscription_pause.duration_selector",
+        "subscription_pause.confirm_button"
+      ]
+    },
+    {
+      "source": "features/subscription/pause_subscription_flow/presentation/widgets/pause_subscription_recommended_step.dart",
+      "ids": [
+        "subscription_pause.custom_dates_button",
+        "subscription_pause.continue_button"
+      ]
+    },
+    {
+      "source": "features/subscription/pause_subscription_flow/presentation/widgets/pause_subscription_success_step.dart",
+      "ids": [
+        "subscription_pause.book_lessons_button",
+        "subscription_pause.not_now_button"
+      ]
+    },
+    {
+      "source": "features/membership/stripe_portal/presentation/widget/billing_error_widget.dart",
+      "ids": [
+        "billing.retry_button",
+        "billing.close_button"
+      ]
+    },
+    {
+      "source": "features/membership/stripe_portal/presentation/widget/billing_portal_webview.dart",
+      "ids": [
+        "billing.dialog.confirm_button"
+      ]
+    },
+    {
+      "source": "features/library/presentation/library_page.dart",
+      "ids": [
+        "library.retry_button"
+      ]
+    },
+    {
+      "source": "presentation/widgets/student_progress.dart",
+      "ids": [
+        "achievements.student_progress_button",
+        "achievements.student_progress_retry_button"
+      ]
+    },
+    {
+      "source": "presentation/page/achievements/assessment/assessment_page_content.dart",
+      "ids": [
+        "assessment.confirmed_tab",
+        "assessment.to_improve_tab"
+      ]
+    },
+    {
+      "source": "presentation/page/referral/referral_page_content.dart",
+      "ids": [
+        "referral.link_tab",
+        "referral.bonuses_tab",
+        "content.copy_referral_link_button",
+        "referral.retry_button",
+        "referral.bonuses_retry_button"
+      ]
+    },
+    {
+      "source": "features/class_add_filter/presentation/class_add_filter.dart",
+      "ids": [
+        "booking_filters.reset_button",
+        "booking_filters.apply_button"
+      ]
+    },
+    {
+      "source": "features/class_add_filter/presentation/widgets/gender_selector.dart",
+      "ids": [
+        "booking_filters.gender.option_item.none",
+        "booking_filters.gender.option_item.male",
+        "booking_filters.gender.option_item.female"
+      ]
+    },
+    {
+      "source": "features/class_add_filter/presentation/widgets/accent_selector.dart",
+      "ids": [
+        "booking_filters.accent.option_item.none",
+        "booking_filters.accent.option_item.british",
+        "booking_filters.accent.option_item.american"
+      ]
+    },
+    {
+      "source": "features/class_add_filter/presentation/widgets/teacher_levels_selector.dart",
+      "ids": [
+        "booking_filters.teacher_level.option_item.all",
+        "booking_filters.teacher_level.option_item.premium",
+        "booking_filters.teacher_level.option_item.standard"
+      ]
+    },
+    {
+      "source": "features/class_add_filter/presentation/widgets/time_range_selector/period_selector.dart",
+      "ids": [
+        "booking_filters.lesson_time.weekly_tab",
+        "booking_filters.lesson_time.one_time_tab"
+      ]
+    },
+    {
+      "source": "presentation/widgets/teacher_type_selector.dart",
+      "ids": [
+        "teacher_type_selector.standard_option",
+        "teacher_type_selector.premium_option"
+      ]
+    },
+    {
+      "source": "features/google_analytics_consent/presentation/widgets/google_analytics_consent_bottom_sheet.dart",
+      "ids": [
+        "ga_consent.analytics_storage_switch",
+        "ga_consent.ad_storage_switch",
+        "ga_consent.ad_user_data_switch",
+        "ga_consent.ad_personalization_switch",
+        "ga_consent.save_choices_button",
+        "ga_consent.accept_all_button",
+        "ga_consent.customize_button",
+        "ga_consent.reject_all_button"
+      ]
+    },
+    {
+      "source": "features/sign_up/presentation/tabs/user_data/presentation/account_data_page.dart",
+      "ids": [
+        "registration.phone_input",
+        "registration.phone_tooltip_button",
+        "registration.submit_button"
+      ]
+    },
+    {
+      "source": "features/sign_up/presentation/tabs/user_data/presentation/widgets/policy.dart",
+      "ids": [
+        "registration.privacy_link",
+        "registration.terms_link"
+      ]
+    },
+    {
+      "source": "features/sign_up/presentation/tabs/user_data/presentation/widgets/social_media.dart",
+      "ids": [
+        "registration.google_button",
+        "registration.apple_button"
+      ]
+    },
+    {
+      "source": "presentation/widgets/gender_selector_material.dart",
+      "ids": [
+        "registration.gender_female_option",
+        "registration.gender_male_option"
+      ]
+    },
+    {
+      "source": "presentation/widgets/birthdate_material_select.dart",
+      "ids": [
+        "registration.student_birth_date_selector"
+      ]
+    },
+    {
+      "source": "presentation/widgets/dialogs/logout_dialog.dart",
+      "ids": [
+        "logout_dialog.confirm_button",
+        "logout_dialog.cancel_button"
+      ]
+    },
+    {
+      "source": "presentation/page/class_creation/class_created_page.dart",
+      "ids": [
+        "booking_success.got_it_button",
+        "booking_success.go_to_schedule_button",
+        "booking_success.book_another_child_button",
+        "booking_success.add_to_calendar_button"
+      ]
+    },
+    {
+      "source": "presentation/page/classroom/presentation/widgets/video/widgets/controllers.dart",
+      "ids": [
+        "classroom.help_button",
+        "classroom.chat_button",
+        "classroom.mute_button",
+        "classroom.hang_up_button"
+      ]
+    },
+    {
+      "source": "presentation/page/classroom/presentation/widgets/waiting_room/join_button.dart",
+      "ids": [
+        "classroom.waiting_room.join_button"
+      ]
+    },
+    {
+      "source": "presentation/page/classroom/presentation/widgets/waiting_room.dart",
+      "ids": [
+        "classroom.waiting_room.wait_for_teacher_button",
+        "classroom.waiting_room.play_games_button"
+      ]
+    }
+  ],
+  "dynamic": [
+    {
+      "pattern": "content.library_category_item.<content.section.id>",
+      "role": "content.library_category_item",
+      "key": "content.section.id",
+      "source": "features/library/presentation/widgets/library_section_tile.dart"
+    },
+    {
+      "pattern": "profile_menu.student_item.<student.id>",
+      "role": "profile_menu.student_item",
+      "key": "student.id",
+      "source": "presentation/page/parent/presentation/widgets/dashboard/widgets/drawer/widgets/students.dart"
+    },
+    {
+      "pattern": "student_selector.student_item.<student.id>",
+      "role": "student_selector.student_item",
+      "key": "student.id",
+      "source": "common/presentation/widgets/student_tab_bar_selector.dart"
+    },
+    {
+      "pattern": "booking.student_option.<value.id>",
+      "role": "booking.student_option",
+      "key": "value.id",
+      "source": "presentation/widgets/teacher_search_options.dart"
+    },
+    {
+      "pattern": "teachers.teacher_card.<teacher.id>",
+      "role": "teachers.teacher_card",
+      "key": "teacher.id",
+      "source": "features/class_add/presentation/widget/teacher_card.dart"
+    },
+    {
+      "pattern": "teacher.profile_button.<teacher.id>",
+      "role": "teacher.profile_button",
+      "key": "teacher.id",
+      "source": "features/class_add/presentation/widget/teacher_card.dart"
+    },
+    {
+      "pattern": "teacher.book_button.<teacher.id>",
+      "role": "teacher.book_button",
+      "key": "teacher.id",
+      "source": "features/class_add/presentation/widget/teacher_card.dart"
+    },
+    {
+      "pattern": "teacher.favorite_button.<teacherId>",
+      "role": "teacher.favorite_button",
+      "key": "teacherId",
+      "source": "features/teacher/favorite_teachers/presentation/widgets/favorite_widget.dart"
+    },
+    {
+      "pattern": "program.level_item.<level?.id>",
+      "role": "program.level_item",
+      "key": "level?.id",
+      "source": "presentation/page/achievements/program/student_program_map.dart"
+    },
+    {
+      "pattern": "program.unit_item.<unit?.id>",
+      "role": "program.unit_item",
+      "key": "unit?.id",
+      "source": "presentation/page/achievements/program/student_program_map.dart"
+    },
+    {
+      "pattern": "program.pre_lesson_video_item.<videos[index].id>",
+      "role": "program.pre_lesson_video_item",
+      "key": "videos[index].id",
+      "source": "presentation/page/achievements/program/student_program_map.dart"
+    },
+    {
+      "pattern": "program.lesson_item.<lesson?.id>",
+      "role": "program.lesson_item",
+      "key": "lesson?.id",
+      "source": "presentation/page/achievements/program/student_stepper.dart"
+    },
+    {
+      "pattern": "achievements.student_tab.<student.id>",
+      "role": "achievements.student_tab",
+      "key": "student.id",
+      "source": "presentation/page/achievements/all_achievements_page.dart"
+    },
+    {
+      "pattern": "schedule.lesson_card.<classItem.id>",
+      "role": "schedule.lesson_card",
+      "key": "classItem.id",
+      "source": "presentation/page/parent/presentation/widgets/schedule_new/tabs/future/widgets/month_section.dart"
+    },
+    {
+      "pattern": "lesson.join_button.<classChild.id>",
+      "role": "lesson.join_button",
+      "key": "classChild.id",
+      "source": "presentation/widgets/list_items/item_schedule/presentation/widgets/join_lesson_schedule.dart"
+    },
+    {
+      "pattern": "lesson.more_button.<classChild.id>",
+      "role": "lesson.more_button",
+      "key": "classChild.id",
+      "source": "presentation/widgets/list_items/item_schedule/presentation/widgets/join_lesson_schedule.dart"
+    },
+    {
+      "pattern": "payment.method_item.<method.name>",
+      "role": "payment.method_item",
+      "key": "method.name",
+      "source": "features/select_payment_method/presenter/widgets/select_payment_method_sheet/select_payment_method_sheet.dart"
+    },
+    {
+      "pattern": "subscription.subscription_item.<subscription.stripeSubscriptionId>",
+      "role": "subscription.subscription_item",
+      "key": "subscription.stripeSubscriptionId",
+      "source": "features/membership/subscription_management/presentation/widgets/subscription_content_body.dart"
+    },
+    {
+      "pattern": "subscription_cancellation.reason_item.<reason.name>",
+      "role": "subscription_cancellation.reason_item",
+      "key": "reason.name",
+      "source": "features/membership/cancel_membership/presentation/widgets/cancel_reason_option.dart"
+    },
+    {
+      "pattern": "teacher.time_slot_item.<slot.startTime>",
+      "role": "teacher.time_slot_item",
+      "key": "slot.startTime",
+      "source": "features/teacher/teacher_schedule/presentation/widgets/teacher_schedule_slot_days_sliver.dart"
+    },
+    {
+      "pattern": "purchase.select_plan_button.<billingPlan.billingPlan>",
+      "role": "purchase.select_plan_button",
+      "key": "billingPlan.billingPlan",
+      "source": "common/presentation/widgets/buy_subscription/presenter/widgets/items/item_calculation.dart"
+    },
+    {
+      "pattern": "purchase.plan_item.<billingPlans[index].billingPlan>",
+      "role": "purchase.plan_item",
+      "key": "billingPlans[index].billingPlan",
+      "source": "common/presentation/widgets/buy_subscription/presenter/widgets/list_of_subscriptions/widgets/phone_view.dart"
+    },
+    {
+      "pattern": "booking.time_slot_item.<state.slots?[index].startTime>",
+      "role": "booking.time_slot_item",
+      "key": "state.slots?[index].startTime",
+      "source": "presentation/page/class_creation/slot_select/slot_select_page_content.dart"
+    },
+    {
+      "pattern": "booking.teacher_level_option.<value.name>",
+      "role": "booking.teacher_level_option",
+      "key": "value.name",
+      "source": "presentation/page/class_creation/teacher_select/teacher_select_page_content.dart"
+    },
+    {
+      "pattern": "subscription_pause.duration_option.<days>",
+      "role": "subscription_pause.duration_option",
+      "key": "days",
+      "source": "features/subscription/pause_subscription_flow/presentation/widgets/pause_subscription_recommended_step.dart"
+    }
+  ],
+  "currentBindings": {
+    "PreLoginPage": {
+      "tryForFreeButton": "welcome.try_for_free_button"
+    },
+    "LogInPageFirstStepPage": {
+      "logInGoogleButton": "login.google_button",
+      "registerButton": "login.sign_up_link"
+    },
+    "LoginStepByEmailPage": {
+      "emailTab": "login.email_tab",
+      "phoneTab": "login.phone_tab",
+      "continueButton": "login.continue_button",
+      "loginWithPasswordButton": "login.password_mode_button",
+      "backButtonSecond": "navigation.back_button"
+    },
+    "LoginWithPasswordEmailPage": {
+      "signInButton": "login.submit_button",
+      "loginWithAccessCodeButton": "login.access_code_mode_button",
+      "forgotPasswordButton": "login.forgot_password_link"
+    },
+    "LoginWithPasswordPhonePage": {
+      "loginWithAccessPhoneCodeButton": "login.access_code_mode_button",
+      "forgotPasswordPhoneButton": "login.forgot_password_link"
+    },
+    "PreTrialDashboardAfterCancelTrialPage": {
+      "bookButton": "home.book_trial_button",
+      "dashboardTab": "navigation.home_tab",
+      "scheduleTab": "navigation.schedule_tab",
+      "kaTab": "navigation.kids_area_tab",
+      "achievementTab": "navigation.achievements_tab",
+      "supportTab": "navigation.support_tab"
+    },
+    "RightMenuListPage": {
+      "newStudentIcon": "profile_menu.add_student_button",
+      "accountIcon": "profile_menu.account_button",
+      "subscriptionIcon": "profile_menu.subscription_button",
+      "bonusesIcon": "profile_menu.bonuses_button",
+      "librarySection": "profile_menu.library_button",
+      "speakingPracticeIcon": "profile_menu.speaking_practice_button",
+      "helpIcon": "profile_menu.help_button",
+      "logOutIcon": "profile_menu.logout_button",
+      "goButton": "profile_menu.referral_button"
+    },
+    "AccountPage": {
+      "backButton": "navigation.back_button",
+      "personalInfo": "account.personal_information_button",
+      "changePassword": "settings.change_password_button",
+      "balanceHistory": "account.balance_history_button",
+      "privacyPolicy": "settings.privacy_link",
+      "termsAndConditions": "settings.terms_link"
+    },
+    "CalendarSyncAccountPage": {
+      "calendarSyncSection": "account.calendar_sync_button"
+    },
+    "GoogleSynchronizeSchedulePage": {
+      "addToGoogleCalendarButton": "schedule.calendar_sync_button"
+    },
+    "NewStudentPage": {
+      "backButton": "navigation.back_button",
+      "girlRadioButton": "add_child.gender_female_option",
+      "boyRadioButton": "add_child.gender_male_option",
+      "addNewChildButton": "add_child.submit_button"
+    },
+    "PersonalInformationPage": {
+      "backButton": "navigation.back_button",
+      "substituteTeachersImage": "profile.substitute_teacher_yes_option",
+      "dontSubstituteTeachersImage": "profile.substitute_teacher_no_option",
+      "deleteAccountButton": "personal_info.remove_account_button"
+    },
+    "PasswordPage": {
+      "backButton": "navigation.back_button",
+      "generatePasswordButton": "set_password.generate_password_button",
+      "proceedButton": "set_password.continue_button"
+    },
+    "SubscriptionTrialPage": {
+      "backButton": "navigation.back_button",
+      "topUpBalanceButton": "balance_info.top_up_balance_button"
+    },
+    "BuySubscriptionTrialPage": {
+      "backButton": "navigation.back_button",
+      "teacherCategoryStandardButton": "purchase.teacher_category_selector",
+      "periodSixMonthsButton": "purchase.duration_selector",
+      "lessonsThreePerWeekButton": "purchase.lessons_per_week_selector",
+      "instalmentPaymentsValue": "purchase.monthly_payment_option",
+      "payInFullValue": "purchase.full_payment_option",
+      "applyButton": "purchase_summary.apply_promo_button",
+      "immediatelyRadio": "purchase.start_immediately_option",
+      "confirmAndPayButton": "payment.pay_button"
+    },
+    "OpenProgramPage": {
+      "backButton": "navigation.back_button"
+    },
+    "BalanceHistoryPage": {
+      "backButton": "navigation.back_button"
+    },
+    "ChooseTeacherPage": {
+      "backButton": "navigation.back_button",
+      "headerHeartButton": "booking.favorite_teachers_button"
+    },
+    "FavouriteTeachersPage": {
+      "backButton": "navigation.back_button"
+    },
+    "OpenScheduleTabPage": {
+      "upcomingTab": "schedule.upcoming_tab",
+      "completedTab": "schedule.past_tab",
+      "bookLessonsButton": "schedule.book_lessons_button"
+    },
+    "ObserveUpcomingClassesPage": {
+      "upcomingTab": "schedule.upcoming_tab",
+      "completedTab": "schedule.past_tab",
+      "bookLessonsButton": "schedule.book_lessons_button"
+    },
+    "NewScheduleUIPage": {
+      "backButton": "navigation.back_button",
+      "weeklyTab": "teacher_schedule.weekly_tab",
+      "oneTimeTab": "teacher_schedule.one_time_tab"
+    },
+    "OpenClassDetailsPage": {
+      "backButton": "navigation.back_button",
+      "enterLessonButton": "lesson.join_button",
+      "rescheduleLessonButton": "lesson.reschedule_button",
+      "cancelTheLessonButton": "lesson.cancel_button"
+    },
+    "OpenGoogleSyncAccountPage": {
+      "backButton": "navigation.back_button"
+    },
+    "OpenGoogleSyncSchedulePage": {
+      "backButton": "navigation.back_button"
+    },
+    "LogOutPopupPage": {
+      "confirmLogoutButton": "logout_dialog.confirm_button",
+      "cancelButton": "logout_dialog.cancel_button"
+    }
+  },
+  "pending": [
+    {
+      "area": "Login",
+      "fields": [
+        "email input",
+        "password input",
+        "phone country selector and input runtime hierarchy"
+      ],
+      "reason": "No standalone new email/password field ID found in reviewed diff; phone has container ID."
+    },
+    {
+      "area": "Text checks",
+      "fields": [
+        "welcome title/subtitle",
+        "login title/no-account text",
+        "dashboard title/cancelled-trial explanation",
+        "page headings",
+        "timezone/empty-state text",
+        "subscription labels/prices"
+      ],
+      "reason": "No corresponding new text ID confirmed; keep text assertions."
+    },
+    {
+      "area": "Specific fixtures",
+      "fields": [
+        "Beginners section",
+        "Vika/Kirill/Misha student IDs",
+        "Nat Test teacher ID",
+        "program level backend IDs",
+        "recurring lesson ID"
+      ],
+      "reason": "Keyed IDs exist; exact fixture keys must be obtained before using exact accessibilityId."
+    },
+    {
+      "area": "New student",
+      "fields": [
+        "name input",
+        "Girl/Boy labels",
+        "birthdate widget usage"
+      ],
+      "reason": "Radio IDs confirmed separately from labels; field mapping requires further verification."
+    },
+    {
+      "area": "External UI",
+      "fields": [
+        "Google OAuth",
+        "iOS permissions",
+        "Intercom/help content"
+      ],
+      "reason": "Not governed by this PR."
+    }
+  ]
+}

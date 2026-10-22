@@ -12,8 +12,8 @@ public class PreLoginPage extends BaseActions {
     // iOS (XCUIElementType): name/label; Android: content-desc
     public final By welcomeTitle = AppiumBy.accessibilityId("Welcome to Novakid");
     public final By subtitleText = AppiumBy.accessibilityId("Exciting gamified English learning for kids aged 4 to 12");
-    public final By tryForFreeButton = AppiumBy.accessibilityId("Try for Free");
-    public final By loginButton = AppiumBy.accessibilityId("Sign in");
+    public final By tryForFreeButton = AppiumBy.accessibilityId("welcome.try_for_free_button");
+    public final By loginButton = AppiumBy.accessibilityId("welcome.sign_in_button");
 
     public PreLoginPage(AppiumDriver driver) {
         super(driver);

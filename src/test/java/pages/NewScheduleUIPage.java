@@ -15,8 +15,7 @@ import interactions.BaseActions;
  */
 public class NewScheduleUIPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Back' OR label CONTAINS[cd] 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
 
     /** Header "Teacher <Name>". Not tied to a specific teacher name. */
     public final By teacherTitle = AppiumBy.iOSNsPredicateString(
@@ -27,12 +26,10 @@ public class NewScheduleUIPage extends BaseActions {
             "name BEGINSWITH[cd] 'Time zone' OR label BEGINSWITH[cd] 'Time zone'");
 
     /** Weekly tab (Inspector: name = "Weekly\nTab 1 of 2"). */
-    public final By weeklyTab = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Weekly' AND name CONTAINS[cd] '1 of 2'");
+    public final By weeklyTab = AppiumBy.accessibilityId("teacher_schedule.weekly_tab");
 
     /** One-time tab (Inspector: name = "One-time\nTab 2 of 2"). */
-    public final By oneTimeTab = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'One-time' AND name CONTAINS[cd] '2 of 2'");
+    public final By oneTimeTab = AppiumBy.accessibilityId("teacher_schedule.one_time_tab");
 
     /**
      * Any day row with "No available slots".

@@ -4,10 +4,12 @@ import base.AppiumBaseTest;
 import base.BasePages;
 import configuration.TestUsers;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Tag("e2e")
+@Disabled("Google Calendar temporarily unavailable; re-enable when functionality is restored.")
 @DisplayName("Open Google Sync Account (Calendar sync detail screen)")
 class OpenGoogleSyncAccountTest extends AppiumBaseTest {
 

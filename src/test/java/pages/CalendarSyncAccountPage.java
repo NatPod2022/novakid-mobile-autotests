@@ -15,8 +15,7 @@ import interactions.BaseActions;
  */
 public class CalendarSyncAccountPage extends BaseActions {
 
-    public final By calendarSyncSection = AppiumBy.iOSNsPredicateString(
-            "name == 'Calendar sync' OR label == 'Calendar sync'");
+    public final By calendarSyncSection = AppiumBy.accessibilityId("account.calendar_sync_button");
 
     public CalendarSyncAccountPage(AppiumDriver driver) {
         super(driver);

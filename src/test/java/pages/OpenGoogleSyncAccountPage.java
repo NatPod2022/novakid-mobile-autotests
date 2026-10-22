@@ -15,9 +15,8 @@ import interactions.BaseActions;
  */
 public class OpenGoogleSyncAccountPage extends BaseActions {
 
-    /** Back arrow — has no name/label in DOM, so we anchor it on the screen title. */
-    public final By backButton = AppiumBy.xpath(
-            "//XCUIElementTypeOther[@name='Calendar sync']/preceding::XCUIElementTypeButton[1]");
+    /** AppBar back button, identified independently of the screen title. */
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
 
     /** Header title "Calendar sync" (on this screen it is an XCUIElementTypeOther). */
     public final By calendarSyncTitle = AppiumBy.iOSNsPredicateString(
@@ -32,8 +31,7 @@ public class OpenGoogleSyncAccountPage extends BaseActions {
             "name BEGINSWITH[cd] 'It will be updated' OR label BEGINSWITH[cd] 'It will be updated'");
 
     /** Primary CTA "Add all lessons" (button with the Google Calendar icon). */
-    public final By addAllLessonsButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Add all lessons' OR label == 'Add all lessons'");
+    public final By addAllLessonsButton = AppiumBy.accessibilityId("calendar_sync.connect_google_button");
 
     public OpenGoogleSyncAccountPage(AppiumDriver driver) {
         super(driver);

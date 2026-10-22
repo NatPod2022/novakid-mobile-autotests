@@ -7,22 +7,18 @@ import org.openqa.selenium.WebElement;
 import interactions.BaseActions;
 
 /**
- * Library screen. iOS: NSPredicate on name/label/value (RN/Flutter); keep {@code accessibilityId} fallbacks as OR where useful.
+ * Library screen using the semantic identifiers introduced in NPA-8057.
  */
 public class LibraryPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Back' OR label CONTAINS[cd] 'Back' OR value CONTAINS[cd] 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     /**
-     * Beginners groups section header — visible title may use hyphen, en dash, or only "Beginners" / "Groups".
+     * Category identifiers contain a backend section ID, not the category title.
+     * Until the Beginners section ID is pinned, match its English label only
+     * within category headers, never arbitrary text elsewhere on the screen.
      */
     public final By beginnersGroupsButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Groups - Beginners' OR label CONTAINS[cd] 'Groups - Beginners' OR value CONTAINS[cd] 'Groups - Beginners' "
-                    + "OR name CONTAINS[cd] 'Groups – Beginners' OR label CONTAINS[cd] 'Groups – Beginners' "
-                    + "OR name CONTAINS[cd] 'Groups — Beginners' OR label CONTAINS[cd] 'Groups — Beginners' "
-                    + "OR name CONTAINS[cd] 'Beginners' OR label CONTAINS[cd] 'Beginners' OR value CONTAINS[cd] 'Beginners' "
-                    + "OR ((name CONTAINS[cd] 'Group' OR label CONTAINS[cd] 'Group' OR name CONTAINS[cd] 'Groups' "
-                    + "OR label CONTAINS[cd] 'Groups') AND (name CONTAINS[cd] 'Beginner' OR label CONTAINS[cd] 'Beginner'))");
+            "name BEGINSWITH 'content.library_category_item.' AND label CONTAINS[cd] 'Beginner'");
 
     public LibraryPage(AppiumDriver driver) {
         super(driver);

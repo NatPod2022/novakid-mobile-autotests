@@ -9,13 +9,13 @@ import interactions.BaseActions;
 /** Login step: email/phone tab, input, continue. iOS + Android via accessibility id. */
 public class LoginStepByEmailPage extends BaseActions {
 
-    public final By emailTab = AppiumBy.iOSNsPredicateString("name CONTAINS 'Email'");
+    public final By emailTab = AppiumBy.accessibilityId("login.email_tab");
     //public final By phoneTab = AppiumBy.accessibilityId("Phone");
-    public final By phoneTab = AppiumBy.iOSNsPredicateString("name CONTAINS 'Phone'");
+    public final By phoneTab = AppiumBy.accessibilityId("login.phone_tab");
     public final By logInInputField = AppiumBy.className("XCUIElementTypeTextField");
-    public final By continueButton = AppiumBy.accessibilityId("Continue");
-    public final By loginWithPasswordButton = AppiumBy.accessibilityId("Sign in with password");
-    public final By backButtonSecond = AppiumBy.accessibilityId("Back");
+    public final By continueButton = AppiumBy.accessibilityId("login.continue_button");
+    public final By loginWithPasswordButton = AppiumBy.accessibilityId("login.password_mode_button");
+    public final By backButtonSecond = AppiumBy.accessibilityId("navigation.back_button");
 
     public LoginStepByEmailPage(AppiumDriver driver) {
         super(driver);

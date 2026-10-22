@@ -10,17 +10,16 @@ import interactions.BaseActions;
 public class OldBonusPage extends BaseActions {
 
     /**
-     * Подзаголовок «Invite your friends to Novakid and unlock exclusive rewards!» — единственный стабильный текст экрана.
-     * Inspector: {@code XCUIElementTypeStaticText}, name равен этой строке.
+     * Подзаголовок приглашения друзей: проверяем устойчивую часть текста без полного совпадения.
      */
     public final By inviteFriendsText = AppiumBy.iOSClassChain(
-            "**/XCUIElementTypeStaticText[`name == \"Invite your friends to Novakid and unlock exclusive rewards!\"`]");
+            "**/XCUIElementTypeStaticText[`name CONTAINS[cd] \"Invite your friends\" OR label CONTAINS[cd] \"Invite your friends\"`]");
 
     public OldBonusPage(AppiumDriver driver) {
         super(driver);
     }
 
     public WebElement getInviteFriendsText() {
-        return waitForElementPresent(inviteFriendsText, "Cannot find 'Invite your friends to Novakid and unlock exclusive rewards!' text", 10, true);
+        return waitForElementPresent(inviteFriendsText, "Cannot find 'Invite friends' text", 10, true);
     }
 }

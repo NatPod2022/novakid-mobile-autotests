@@ -9,9 +9,10 @@ import interactions.BaseActions;
 /** Login step: phone number / sign in with password. iOS + Android via accessibility id. */
 public class LoginStepByPhonePage extends BaseActions {
 
-    public final By phoneIndex = AppiumBy.iOSNsPredicateString("name CONTAINS '+'");
-    public final By loginWithPasswordPhoneButton = AppiumBy.accessibilityId("Sign in with password");
-    public final By logInInputFieldPhone = AppiumBy.className("XCUIElementTypeTextField");
+    // NPA-8057 tags the container; the country selector is its first button.
+    public final By phoneIndex = AppiumBy.xpath("//*[@name='login.phone_input']//XCUIElementTypeButton[1]");
+    public final By loginWithPasswordPhoneButton = AppiumBy.accessibilityId("login.password_mode_button");
+    public final By logInInputFieldPhone = AppiumBy.xpath("//*[@name='login.phone_input']//XCUIElementTypeTextField");
 
     public LoginStepByPhonePage(AppiumDriver driver) {
         super(driver);

@@ -12,12 +12,12 @@ public class AccountPage extends BaseActions {
     /** User header (initials): on iOS name may differ. */
     public final By userHeader = AppiumBy.accessibilityId("PP");
     public final By accountTitle = AppiumBy.accessibilityId("Account");
-    public final By personalInfo = AppiumBy.accessibilityId("Personal information");
-    public final By changePassword = AppiumBy.accessibilityId("Change password");
-    public final By balanceHistory = AppiumBy.accessibilityId("Balance history");
-    public final By privacyPolicy = AppiumBy.accessibilityId("Privacy policy");
-    public final By termsAndConditions = AppiumBy.accessibilityId("Terms and Conditions");
-    public final By backButton = AppiumBy.accessibilityId("Back");
+    public final By personalInfo = AppiumBy.accessibilityId("account.personal_information_button");
+    public final By changePassword = AppiumBy.accessibilityId("settings.change_password_button");
+    public final By balanceHistory = AppiumBy.accessibilityId("account.balance_history_button");
+    public final By privacyPolicy = AppiumBy.accessibilityId("settings.privacy_link");
+    public final By termsAndConditions = AppiumBy.accessibilityId("settings.terms_link");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
 
     public AccountPage(AppiumDriver driver) {
         super(driver);

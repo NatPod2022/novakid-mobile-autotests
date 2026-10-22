@@ -11,8 +11,7 @@ import interactions.BaseActions;
  */
 public class FavouriteTeachersPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Back' OR label CONTAINS[cd] 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By pageTitle = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Select a teacher' OR label CONTAINS[cd] 'Select a teacher' "
                     + "OR name CONTAINS[cd] 'Favourite' OR label CONTAINS[cd] 'Favourite'");
@@ -20,13 +19,10 @@ public class FavouriteTeachersPage extends BaseActions {
             "name CONTAINS[cd] 'Your favourite' OR label CONTAINS[cd] 'Your favourite'");
     public final By teacherNameNatTest = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Nat Test' OR label CONTAINS[cd] 'Nat Test' OR name CONTAINS[cd] 'Nat test' OR label CONTAINS[cd] 'Nat test'");
-    public final By teacherCardHeartButton = AppiumBy.iOSNsPredicateString(
-            "type == 'XCUIElementTypeButton' AND (name CONTAINS[cd] 'heart' OR label CONTAINS[cd] 'heart' "
-                    + "OR name CONTAINS[cd] 'favourite' OR label CONTAINS[cd] 'favourite')");
-    public final By readMoreButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Read more' OR label CONTAINS[cd] 'Read more'");
-    public final By bookLessonButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Book lesson' OR label CONTAINS[cd] 'Book lesson' OR name BEGINSWITH[cd] 'Book'");
+    // Card actions have a teacher.id suffix. These getters select any card, as before.
+    public final By teacherCardHeartButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'teacher.favorite_button.'");
+    public final By readMoreButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'teacher.profile_button.'");
+    public final By bookLessonButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'teacher.book_button.'");
 
     public FavouriteTeachersPage(AppiumDriver driver) {
         super(driver);

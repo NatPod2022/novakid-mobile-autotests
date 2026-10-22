@@ -12,8 +12,7 @@ import interactions.BaseActions;
  */
 public class PersonalInformationPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Back' OR label CONTAINS[cd] 'Back' OR value CONTAINS[cd] 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By personalInfoTitle = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Personal information' OR label CONTAINS[cd] 'Personal information' OR value CONTAINS[cd] 'Personal information'");
     public final By phoneNumber = AppiumBy.iOSNsPredicateString(
@@ -22,12 +21,9 @@ public class PersonalInformationPage extends BaseActions {
             "name CONTAINS[cd] 'Email' OR label CONTAINS[cd] 'Email' OR value CONTAINS[cd] 'Email'");
     public final By timeZone = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Time zone' OR label CONTAINS[cd] 'Time zone' OR value CONTAINS[cd] 'Time zone'");
-    public final By substituteTeachersImage = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Substitute teachers' OR label CONTAINS[cd] 'Substitute teachers' OR value CONTAINS[cd] 'Substitute teachers'");
-    public final By dontSubstituteTeachersImage = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] \"Don't substitute\" OR label CONTAINS[cd] \"Don't substitute\" OR value CONTAINS[cd] \"Don't substitute\"");
-    public final By deleteAccountButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Delete account' OR label CONTAINS[cd] 'Delete account' OR value CONTAINS[cd] 'Delete account'");
+    public final By substituteTeachersImage = AppiumBy.accessibilityId("profile.substitute_teacher_yes_option");
+    public final By dontSubstituteTeachersImage = AppiumBy.accessibilityId("profile.substitute_teacher_no_option");
+    public final By deleteAccountButton = AppiumBy.accessibilityId("personal_info.remove_account_button");
 
     public PersonalInformationPage(AppiumDriver driver) {
         super(driver);

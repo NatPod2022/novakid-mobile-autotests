@@ -9,7 +9,7 @@ import interactions.BaseActions;
 /** Balance history screen. iOS + Android via accessibility id. */
 public class BalanceHistoryPage extends BaseActions {
 
-    public final By backButton = AppiumBy.accessibilityId("Back");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By balanceHistoryTitle = AppiumBy.accessibilityId("Balance history");
     /** Trial lesson row: screen shows "1 lesson: Trial lesson". */
     //public final By trialLessonEntry = AppiumBy.accessibilityId("Trial lesson");

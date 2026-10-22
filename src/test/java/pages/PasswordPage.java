@@ -9,7 +9,7 @@ import interactions.BaseActions;
 /** Set password screen. iOS + Android via accessibility id. */
 public class PasswordPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString("name CONTAINS 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By setPasswordTitle = AppiumBy.iOSNsPredicateString("name CONTAINS 'Set password'");
     public final By passwordInfoText = AppiumBy.iOSNsPredicateString("name CONTAINS 'When you reset the password'");
     /** Fields are XCUIElementTypeTextField (not SecureTextField); caption as separate StaticText; the field itself has an empty label. XPath from Inspector. */
@@ -17,8 +17,8 @@ public class PasswordPage extends BaseActions {
             "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTextField[1]");
     public final By repeatPasswordField = AppiumBy.xpath(
             "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTextField[2]");
-    public final By generatePasswordButton = AppiumBy.iOSNsPredicateString("name CONTAINS 'Generate a random password'");
-    public final By proceedButton = AppiumBy.iOSNsPredicateString("name CONTAINS 'Proceed'");
+    public final By generatePasswordButton = AppiumBy.accessibilityId("set_password.generate_password_button");
+    public final By proceedButton = AppiumBy.accessibilityId("set_password.continue_button");
 
     public PasswordPage(AppiumDriver driver) {
         super(driver);

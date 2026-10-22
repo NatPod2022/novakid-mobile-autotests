@@ -10,7 +10,7 @@ import interactions.BaseActions;
 public class OpenProgramPage extends BaseActions {
 
     public final By programTitle = AppiumBy.accessibilityId("Program");
-    public final By backButton = AppiumBy.accessibilityId("Back");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By level0 = AppiumBy.accessibilityId("Level 0: Pre-K");
     public final By level1 = AppiumBy.accessibilityId("Level 1: Juniors");
     /** Карточка «Level 2: Starters» — полный name «Level 2: Starters\nUnit 0: Trial Level 2» (Inspector). По чистому id не находится — берём BEGINSWITH. */

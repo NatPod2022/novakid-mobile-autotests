@@ -22,8 +22,7 @@ import interactions.BaseActions;
  */
 public class OpenClassDetailsPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Back' OR label == 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
 
     /** Lesson title — "Lv1.Un0.Ls1 - Magic Academy Level 1 : Trial Lesson - Welcome to Novakid!". */
     public final By lessonTitle = AppiumBy.iOSNsPredicateString(
@@ -46,14 +45,11 @@ public class OpenClassDetailsPage extends BaseActions {
 
     // --- Action buttons (require scroll down to be visible) ---
 
-    public final By enterLessonButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Enter lesson' OR label == 'Enter lesson'");
+    public final By enterLessonButton = AppiumBy.accessibilityId("lesson.join_button");
 
-    public final By rescheduleLessonButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Reschedule lesson' OR label == 'Reschedule lesson'");
+    public final By rescheduleLessonButton = AppiumBy.accessibilityId("lesson.reschedule_button");
 
-    public final By cancelTheLessonButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Cancel the lesson' OR label == 'Cancel the lesson'");
+    public final By cancelTheLessonButton = AppiumBy.accessibilityId("lesson.cancel_button");
 
     public OpenClassDetailsPage(AppiumDriver driver) {
         super(driver);

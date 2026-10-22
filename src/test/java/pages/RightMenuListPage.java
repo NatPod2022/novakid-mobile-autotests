@@ -16,26 +16,16 @@ public class RightMenuListPage extends BaseActions {
             "name CONTAINS[cd] 'PP' OR label CONTAINS[cd] 'PP' OR value CONTAINS[cd] 'PP'");
     public final By userName = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Podor' OR label CONTAINS[cd] 'Podor' OR value CONTAINS[cd] 'Podor'");
-    public final By mishaIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Misha' OR label CONTAINS[cd] 'Misha' OR value CONTAINS[cd] 'Misha'");
-    public final By newStudentIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'New student' OR label CONTAINS[cd] 'New student' OR value CONTAINS[cd] 'New student'");
-    public final By accountIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Account' OR label CONTAINS[cd] 'Account' OR value CONTAINS[cd] 'Account'");
-    public final By subscriptionIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Subscription' OR label CONTAINS[cd] 'Subscription' OR value CONTAINS[cd] 'Subscription'");
-    public final By bonusesIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Bonuses' OR label CONTAINS[cd] 'Bonuses' OR value CONTAINS[cd] 'Bonuses'");
-    public final By librarySection = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Library' OR label CONTAINS[cd] 'Library' OR value CONTAINS[cd] 'Library'");
-    public final By speakingPracticeIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Speaking practice' OR label CONTAINS[cd] 'Speaking practice' OR value CONTAINS[cd] 'Speaking practice'");
-    /** Пункт «Help» в правом меню — Inspector: {@code XCUIElementTypeButton}, name == "Help". Точный матч, без CONTAINS — иначе цепляет «Help Center» в Intercom. */
-    public final By helpIcon = AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Help\"`]");
-    public final By logOutIcon = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Log out' OR label CONTAINS[cd] 'Log out' OR value CONTAINS[cd] 'Log out'");
-    public final By goButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Go!' OR label CONTAINS[cd] 'Go!' OR value CONTAINS[cd] 'Go!'");
+    public final By newStudentIcon = AppiumBy.accessibilityId("profile_menu.add_student_button");
+    public final By accountIcon = AppiumBy.accessibilityId("profile_menu.account_button");
+    public final By subscriptionIcon = AppiumBy.accessibilityId("profile_menu.subscription_button");
+    public final By bonusesIcon = AppiumBy.accessibilityId("profile_menu.bonuses_button");
+    public final By librarySection = AppiumBy.accessibilityId("profile_menu.library_button");
+    public final By speakingPracticeIcon = AppiumBy.accessibilityId("profile_menu.speaking_practice_button");
+    /** Пункт Help в меню, не элементы внешнего Intercom. */
+    public final By helpIcon = AppiumBy.accessibilityId("profile_menu.help_button");
+    public final By logOutIcon = AppiumBy.accessibilityId("profile_menu.logout_button");
+    public final By goButton = AppiumBy.accessibilityId("profile_menu.referral_button");
 
     public RightMenuListPage(AppiumDriver driver) {
         super(driver);
@@ -49,8 +39,12 @@ public class RightMenuListPage extends BaseActions {
         return waitForElementPresent(userName, "Cannot find user name", 5, true);
     }
 
-    public WebElement getMishaIcon() {
-        return waitForElementPresent(mishaIcon, "Cannot find Misha icon", 5, true);
+    public WebElement getStudentIcon(String studentId) {
+        if (studentId == null || studentId.isBlank()) {
+            throw new IllegalArgumentException("Configure studentId for the test account before checking its menu");
+        }
+        By studentIcon = AppiumBy.accessibilityId("profile_menu.student_item." + studentId);
+        return waitForElementPresent(studentIcon, "Cannot find student menu item: " + studentId, 5, true);
     }
 
     public WebElement getNewStudentIcon() {

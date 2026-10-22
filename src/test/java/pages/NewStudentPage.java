@@ -9,14 +9,12 @@ import interactions.BaseActions;
 /** New student screen. iOS + Android via accessibility id. */
 public class NewStudentPage extends BaseActions {
 
-    public final By backButton = AppiumBy.accessibilityId("Back");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By newStudentTitle = AppiumBy.accessibilityId("New student");
-    public final By girlRadioButton =
-            AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'girl' OR name CONTAINS[c] 'girl'");
+    public final By girlRadioButton = AppiumBy.accessibilityId("add_child.gender_female_option");
     public final By girlLabel =
             AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'girl' OR name CONTAINS[c] 'girl'");
-    public final By boyRadioButton =
-            AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'boy' OR name CONTAINS[c] 'boy'");
+    public final By boyRadioButton = AppiumBy.accessibilityId("add_child.gender_male_option");
     public final By boyLabel =
             AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'boy' OR name CONTAINS[c] 'boy'");
     public final By firstNameInput =
@@ -24,8 +22,7 @@ public class NewStudentPage extends BaseActions {
     public final By dateOfBirthInput =
             AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'date of birth' OR name CONTAINS[c] 'date of birth'");
 
-    public final By addNewChildButton =
-            AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'add a new child' OR name CONTAINS[c] 'add a new child'");
+    public final By addNewChildButton = AppiumBy.accessibilityId("add_child.submit_button");
 
     public NewStudentPage(AppiumDriver driver) {
         super(driver);

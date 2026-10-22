@@ -10,10 +10,10 @@ import interactions.BaseActions;
 public class LoginWithPasswordPhonePage extends BaseActions {
 
     //public final By passwordPhoneInputField = AppiumBy.accessibilityId("Password");
-    public final By signInPhoneButton = AppiumBy.accessibilityId("Sign in");
+    public final By signInPhoneButton = AppiumBy.accessibilityId("login.submit_button");
     public final By passwordPhoneInputField = AppiumBy.iOSNsPredicateString("label CONTAINS 'Password' OR name CONTAINS 'Password'");
-    public final By loginWithAccessPhoneCodeButton = AppiumBy.accessibilityId("Sign in with access code");
-    public final By forgotPasswordPhoneButton = AppiumBy.accessibilityId("I forgot password");
+    public final By loginWithAccessPhoneCodeButton = AppiumBy.accessibilityId("login.access_code_mode_button");
+    public final By forgotPasswordPhoneButton = AppiumBy.accessibilityId("login.forgot_password_link");
 
     public LoginWithPasswordPhonePage(AppiumDriver driver) {
         super(driver);

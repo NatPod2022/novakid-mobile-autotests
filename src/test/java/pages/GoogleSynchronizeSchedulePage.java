@@ -14,8 +14,7 @@ import interactions.BaseActions;
  */
 public class GoogleSynchronizeSchedulePage extends BaseActions {
 
-    public final By addToGoogleCalendarButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Add to Google Calendar' OR label == 'Add to Google Calendar'");
+    public final By addToGoogleCalendarButton = AppiumBy.accessibilityId("schedule.calendar_sync_button");
 
     public GoogleSynchronizeSchedulePage(AppiumDriver driver) {
         super(driver);

@@ -19,9 +19,8 @@ import interactions.BaseActions;
  */
 public class OpenGoogleSyncSchedulePage extends BaseActions {
 
-    /** Back arrow — no name/label in DOM, anchored on the "Calendar sync" header. */
-    public final By backButton = AppiumBy.xpath(
-            "//XCUIElementTypeOther[@name='Calendar sync']/preceding::XCUIElementTypeButton[1]");
+    /** AppBar back button, identified independently of the screen title. */
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
 
     /** Header title "Calendar sync" (XCUIElementTypeOther on this screen). */
     public final By calendarSyncTitle = AppiumBy.iOSNsPredicateString(
@@ -36,8 +35,7 @@ public class OpenGoogleSyncSchedulePage extends BaseActions {
             "name BEGINSWITH[cd] 'Changes in Google Calendar' OR label BEGINSWITH[cd] 'Changes in Google Calendar'");
 
     /** Primary CTA "Add all lessons". */
-    public final By addAllLessonsButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Add all lessons' OR label == 'Add all lessons'");
+    public final By addAllLessonsButton = AppiumBy.accessibilityId("calendar_sync.add_all_lessons_button");
 
     public OpenGoogleSyncSchedulePage(AppiumDriver driver) {
         super(driver);

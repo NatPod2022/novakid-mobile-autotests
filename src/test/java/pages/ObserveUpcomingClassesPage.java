@@ -26,12 +26,10 @@ public class ObserveUpcomingClassesPage extends BaseActions {
             "value == 'All students' OR name == 'All students' OR label == 'All students'");
 
     /** "Upcoming" tab (Inspector: name = "Upcoming\nTab 1 of 2"). */
-    public final By upcomingTab = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Upcoming' AND name CONTAINS[cd] '1 of 2'");
+    public final By upcomingTab = AppiumBy.accessibilityId("schedule.upcoming_tab");
 
     /** "Completed" tab (Inspector: name = "Completed\nTab 2 of 2"). */
-    public final By completedTab = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Completed' AND name CONTAINS[cd] '2 of 2'");
+    public final By completedTab = AppiumBy.accessibilityId("schedule.past_tab");
 
     /** Time zone label, e.g. "Time zone: Europe/Belgrade, UTC+2". TZ depends on the device. */
     public final By timeZoneLabel = AppiumBy.iOSNsPredicateString(
@@ -50,8 +48,7 @@ public class ObserveUpcomingClassesPage extends BaseActions {
     public final By individualLessonNatTestVika = AppiumBy.iOSNsPredicateString(
             "name CONTAINS '18:00 - 18:25' AND name CONTAINS 'Nat TEST' AND name CONTAINS 'Vika'");
 
-    public final By bookLessonsButton = AppiumBy.iOSNsPredicateString(
-            "name == 'Book lessons' OR label == 'Book lessons'");
+    public final By bookLessonsButton = AppiumBy.accessibilityId("schedule.book_lessons_button");
 
     public ObserveUpcomingClassesPage(AppiumDriver driver) {
         super(driver);

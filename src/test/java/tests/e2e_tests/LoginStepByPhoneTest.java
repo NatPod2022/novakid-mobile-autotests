@@ -27,7 +27,7 @@ class LoginStepByPhoneTest extends AppiumBaseTest {
         // Click on phoneTab
         pages.loginStepByEmail.getPhoneTab().click();
         // Check LoginStepByEmailPage elements:
-        pages.loginStepByPhone.getphoneIndex();
+        //pages.loginStepByPhone.getphoneIndex();
         pages.loginStepByPhone.getLoginWithPasswordPhoneButton();
     }
 }

@@ -12,7 +12,10 @@ import java.util.Optional;
  */
 public final class TestUsers {
 
-    public record TestUser(String email, String password) {
+    public record TestUser(String email, String password, String studentId) {
+        public TestUser(String email, String password) {
+            this(email, password, "");
+        }
     }
 
     private TestUsers() {
@@ -29,7 +32,9 @@ public final class TestUsers {
         return new TestUser(
                 //value("test.user.afterCancelTrial.email", "TEST_USER_AFTER_CANCEL_TRIAL_EMAIL", "np_test@mail.nv"),
                 value("test.user.afterCancelTrial.email", "TEST_USER_AFTER_CANCEL_TRIAL_EMAIL", "polabialoskorska36+12@gmail.com"),
-                value("test.user.afterCancelTrial.password", "TEST_USER_AFTER_CANCEL_TRIAL_PASSWORD", "12345678")
+                value("test.user.afterCancelTrial.password", "TEST_USER_AFTER_CANCEL_TRIAL_PASSWORD", "12345678"),
+                // Parent 3388358 (Anna), child Pola; verified in Back Office.
+                value("test.user.afterCancelTrial.studentId", "TEST_USER_AFTER_CANCEL_TRIAL_STUDENT_ID", "2636204")
         );
     }
 
@@ -40,7 +45,7 @@ public final class TestUsers {
     public static TestUser schedule() {
         return new TestUser(
                 //value("test.user.schedule.email", "TEST_USER_SCHEDULE_EMAIL", "Auto_Test_schedule@mail.ru"),
-                value("test.user.schedule.email", "TEST_USER_SCHEDULE_EMAIL", "Npodorozhkina+7379@gmail.com"),
+                value("test.user.schedule.email", "TEST_USER_SCHEDULE_EMAIL", "ments@novakihool.com"),
                 value("test.user.schedule.password", "TEST_USER_SCHEDULE_PASSWORD", "12345678")
         );
     }

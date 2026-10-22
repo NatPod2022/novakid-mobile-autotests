@@ -10,10 +10,8 @@ import interactions.BaseActions;
 public class LogOutPopupPage extends BaseActions {
 
     //public final By popupText = AppiumBy.accessibilityId("Log out?");
-    public final By confirmLogoutButton =
-            AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'log out' OR name CONTAINS[c] 'log out'");
-    public final By cancelButton =
-            AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'cancel' OR name CONTAINS[c] 'cancel'");
+    public final By confirmLogoutButton = AppiumBy.accessibilityId("logout_dialog.confirm_button");
+    public final By cancelButton = AppiumBy.accessibilityId("logout_dialog.cancel_button");
     public final By popupText =
             AppiumBy.iOSNsPredicateString("label CONTAINS[c] 'log out' OR name CONTAINS[c] 'log out'");
 

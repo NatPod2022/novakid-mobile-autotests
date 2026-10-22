@@ -9,17 +9,17 @@ import interactions.BaseActions;
 /** Choose teacher screen. iOS + Android via accessibility id. */
 public class ChooseTeacherPage extends BaseActions {
 
-    public final By backButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Back'");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By chooseTeacherTitle = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Choose'");
     /** Табы учеников (Inspector: name «Vika Tab 1 of 2», «Kirill Tab 2 of 2»; перевод строки в name учитывается через CONTAINS). */
     public final By vikaTab = AppiumBy.iOSNsPredicateString("name CONTAINS 'Vika' AND name CONTAINS '1 of 2'");
     public final By kirillTab = AppiumBy.iOSNsPredicateString("name CONTAINS 'Kirill' AND name CONTAINS '2 of 2'");
-    /** Сердце в шапке: XPath от заголовка экрана (без XCUIElementTypeNavigationBar в кастомной шапке). Если не то — сменить [2]/[3] у following::XCUIElementTypeButton. */
-    public final By headerHeartButton = AppiumBy.xpath(
-            "//XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeButton[2]");
+    /** Кнопка избранных учителей в ClassAddScaffold (NPA-8057). */
+    public final By headerHeartButton = AppiumBy.accessibilityId("booking.favorite_teachers_button");
     public final By availableTeachersLabel = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Available'");
-    public final By readMoreButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Read more'");
-    public final By bookLessonButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Book'");
+    // These getters intentionally select any teacher, as before; the suffix is teacher.id.
+    public final By readMoreButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'teacher.profile_button.'");
+    public final By bookLessonButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'teacher.book_button.'");
 
     public ChooseTeacherPage(AppiumDriver driver) {
         super(driver);

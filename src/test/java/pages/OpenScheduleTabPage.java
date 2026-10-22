@@ -13,10 +13,8 @@ public class OpenScheduleTabPage extends BaseActions {
 
     public final By titleSchedule = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Schedule' OR label CONTAINS[cd] 'Schedule' OR value CONTAINS[cd] 'Schedule'");
-    public final By upcomingTab = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Upcoming' OR label CONTAINS[cd] 'Upcoming' OR value CONTAINS[cd] 'Upcoming'");
-    public final By completedTab = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Completed' OR label CONTAINS[cd] 'Completed' OR value CONTAINS[cd] 'Completed'");
+    public final By upcomingTab = AppiumBy.accessibilityId("schedule.upcoming_tab");
+    public final By completedTab = AppiumBy.accessibilityId("schedule.past_tab");
     public final By timeZoneText = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Time zone' OR label CONTAINS[cd] 'Time zone' OR value CONTAINS[cd] 'Time zone'");
     public final By noLessonsMessage = AppiumBy.iOSNsPredicateString(
@@ -24,8 +22,7 @@ public class OpenScheduleTabPage extends BaseActions {
                     + "OR name CONTAINS[cd] 'Book lesson' OR label CONTAINS[cd] 'Book lesson' "
                     + "OR name CONTAINS[cd] 'child has no' OR label CONTAINS[cd] 'child has no' "
                     + "OR name CONTAINS[cd] 'lessons scheduled' OR label CONTAINS[cd] 'lessons scheduled'");
-    public final By bookLessonsButton = AppiumBy.iOSNsPredicateString(
-            "name CONTAINS[cd] 'Book lessons' OR label CONTAINS[cd] 'Book lessons' OR name CONTAINS[cd] 'Book lesson' OR label CONTAINS[cd] 'Book lesson'");
+    public final By bookLessonsButton = AppiumBy.accessibilityId("schedule.book_lessons_button");
     public final By premiumLesson = AppiumBy.iOSNsPredicateString(
             "name CONTAINS[cd] 'Premium lesson' OR label CONTAINS[cd] 'Premium lesson' OR value CONTAINS[cd] 'Premium lesson' OR "
                     + "((name CONTAINS[cd] 'Premium' OR label CONTAINS[cd] 'Premium' OR value CONTAINS[cd] 'Premium') "

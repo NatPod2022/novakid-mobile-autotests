@@ -9,9 +9,8 @@ import interactions.BaseActions;
 /** Achievement tab. iOS + Android via accessibility id. */
 public class OpenAchievementTabPage extends BaseActions {
 
-    /** Карточка уровня — Inspector: {@code XCUIElementTypeStaticText}, name «Level N: …\nUnit M: …». BEGINSWITH 'Level' + ограничение по типу — иначе CONTAINS цепляет другие элементы (вкладки и т.п.). */
-    public final By levelCard = AppiumBy.iOSNsPredicateString(
-            "type == 'XCUIElementTypeStaticText' AND (name BEGINSWITH 'Level' OR label BEGINSWITH 'Level')");
+    /** NPA-8057 student progress button; mapping to the level card awaits device verification. */
+    public final By levelCard = AppiumBy.accessibilityId("achievements.student_progress_button");
     public final By exercisesToDo = AppiumBy.iOSNsPredicateString("name CONTAINS 'Exercises to do:'");
 
     public OpenAchievementTabPage(AppiumDriver driver) {

@@ -9,21 +9,21 @@ import interactions.BaseActions;
 /** Buy subscription screen. iOS + Android via accessibility id. */
 public class BuySubscriptionTrialPage extends BaseActions {
 
-    public final By backButton = AppiumBy.accessibilityId("Back");
+    public final By backButton = AppiumBy.accessibilityId("navigation.back_button");
     public final By subscriptionTitle = AppiumBy.accessibilityId("Subscription");
-    public final By teacherCategoryStandardButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Teacher category'");
-    public final By periodSixMonthsButton = AppiumBy.accessibilityId("Subscription period");
-    public final By lessonsThreePerWeekButton = AppiumBy.accessibilityId("Lessons");
+    public final By teacherCategoryStandardButton = AppiumBy.accessibilityId("purchase.teacher_category_selector");
+    public final By periodSixMonthsButton = AppiumBy.accessibilityId("purchase.duration_selector");
+    public final By lessonsThreePerWeekButton = AppiumBy.accessibilityId("purchase.lessons_per_week_selector");
     public final By billingTypeTitle = AppiumBy.accessibilityId("Billing type");
-    public final By instalmentPaymentsValue = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Instalment payments'");
-    public final By payInFullValue = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Pay in full'");
-    public final By applyButton = AppiumBy.accessibilityId("Apply");
-    public final By immediatelyRadio = AppiumBy.accessibilityId("Immediately");
+    public final By instalmentPaymentsValue = AppiumBy.accessibilityId("purchase.monthly_payment_option");
+    public final By payInFullValue = AppiumBy.accessibilityId("purchase.full_payment_option");
+    public final By applyButton = AppiumBy.accessibilityId("purchase_summary.apply_promo_button");
+    public final By immediatelyRadio = AppiumBy.accessibilityId("purchase.start_immediately_option");
     public final By summaryBlock = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Summary'");
     public final By paymentTimelineBlock = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Payment timeline'");
     public final By paymentMethodTitle = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Payment method'");
     public final By bankCardOption = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Bank card'");
-    public final By confirmAndPayButton = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Confirm and pay'");
+    public final By confirmAndPayButton = AppiumBy.accessibilityId("payment.pay_button");
 
     public BuySubscriptionTrialPage(AppiumDriver driver) {
         super(driver);

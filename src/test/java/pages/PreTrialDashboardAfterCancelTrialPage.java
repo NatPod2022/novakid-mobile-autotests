@@ -10,25 +10,20 @@ import interactions.BaseActions;
 public class PreTrialDashboardAfterCancelTrialPage extends BaseActions {
 
     public final By labelNovakid = AppiumBy.accessibilityId("Novakid");
-    /**
-     * Открывалка правого меню — аватар с инициалами «PP» в шапке (Inspector: {@code XCUIElementTypeStaticText}, name == "PP").
-     * Класс-чейн надёжнее, чем CONTAINS[cd] 'PP' — последнее цепляет любые строки с подстрокой "pp" и попадает не в тот элемент.
-     */
-    public final By logoParent = AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"PP\"`]");
+    /** Кнопка меню родителя: ID из DashboardAppBar (NPA-8057), не зависит от инициалов. */
+    public final By logoParent = AppiumBy.accessibilityId("navigation.profile_menu_button");
     public final By title = AppiumBy.accessibilityId("Claim your free lesson!");
     /** Подзаголовок-извинение — целиком: «We're sorry you had to cancel your trial lesson. But you can rebook it. Do it now!». Берём по BEGINSWITH, не точный id. */
     public final By textWeAreSorry = AppiumBy.iOSNsPredicateString(
             "type == 'XCUIElementTypeStaticText' AND (name BEGINSWITH \"We're sorry\" OR label BEGINSWITH \"We're sorry\" OR value BEGINSWITH \"We're sorry\")");
-    public final By bookButton = AppiumBy.accessibilityId("Book my trial lesson");
-    /** Таб «Dashboard» — полный name «Dashboard\nTab 1 of 5» (Inspector). По чистому id «Dashboard» не находится — берём BEGINSWITH. */
-    public final By dashboardTab = AppiumBy.iOSNsPredicateString(
-            "type == 'XCUIElementTypeButton' AND (name BEGINSWITH 'Dashboard' OR label BEGINSWITH 'Dashboard')");
-    public final By scheduleTab = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Schedule'");
-    /** Таб «Classroom» — полный name «Classroom, homework\nTab 3 of 5» (Inspector). По чистому id «Classroom» не находится — берём BEGINSWITH. */
-    public final By kaTab = AppiumBy.iOSNsPredicateString(
-            "type == 'XCUIElementTypeButton' AND (name BEGINSWITH 'Classroom' OR label BEGINSWITH 'Classroom')");
-    public final By achievementTab = AppiumBy.iOSNsPredicateString("name CONTAINS 'Achievements'");
-    public final By supportTab = AppiumBy.iOSNsPredicateString("name BEGINSWITH 'Support'");
+    public final By bookButton = AppiumBy.accessibilityId("home.book_trial_button");
+    /** Нижняя вкладка Dashboard: semantic ID из ParentContentPage. */
+    public final By dashboardTab = AppiumBy.accessibilityId("navigation.home_tab");
+    public final By scheduleTab = AppiumBy.accessibilityId("navigation.schedule_tab");
+    /** Нижняя вкладка Kids Area / Classroom: semantic ID из ParentContentPage. */
+    public final By kaTab = AppiumBy.accessibilityId("navigation.kids_area_tab");
+    public final By achievementTab = AppiumBy.accessibilityId("navigation.achievements_tab");
+    public final By supportTab = AppiumBy.accessibilityId("navigation.support_tab");
 
     public PreTrialDashboardAfterCancelTrialPage(AppiumDriver driver) {
         super(driver);

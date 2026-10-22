@@ -38,7 +38,7 @@ class RightMenuListTest extends AppiumBaseTest {
         pages.preTrialDashboard.getLogoParent().click();
         // Check all elements on page
         pages.rightMenuListPage.getPpSection();
-        pages.rightMenuListPage.getMishaIcon();
+        pages.rightMenuListPage.getStudentIcon(user.studentId());
         pages.rightMenuListPage.getNewStudentIcon();
         pages.rightMenuListPage.getAccountIcon();
         pages.rightMenuListPage.getSubscriptionIcon();

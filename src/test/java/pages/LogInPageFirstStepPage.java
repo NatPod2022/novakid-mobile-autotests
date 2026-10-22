@@ -10,10 +10,10 @@ import interactions.BaseActions;
 public class LogInPageFirstStepPage extends BaseActions {
 
     public final By logInTitle = AppiumBy.accessibilityId("Sign in to Novakid");
-    public final By logInGoogleButton = AppiumBy.accessibilityId("Sign in with Google");
-    public final By logInEmailPhoneButton = AppiumBy.accessibilityId("Sign in with email/phone");
+    public final By logInGoogleButton = AppiumBy.accessibilityId("login.google_button");
+    public final By logInEmailPhoneButton = AppiumBy.accessibilityId("login.email_phone_button");
     public final By haveYouAccountTitle = AppiumBy.accessibilityId("Don't have an account");
-    public final By registerButton = AppiumBy.accessibilityId("Register");
+    public final By registerButton = AppiumBy.accessibilityId("login.sign_up_link");
 
     public LogInPageFirstStepPage(AppiumDriver driver) {
         super(driver);
