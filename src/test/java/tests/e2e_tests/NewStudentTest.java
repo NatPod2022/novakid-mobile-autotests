@@ -13,7 +13,7 @@ class NewStudentTest extends AppiumBaseTest {
 
     @Test
     @DisplayName("new student page shows form elements")
-    // Test Case #17 — verify New Student screen elements
+    // Test Case #14 — verify New Student screen elements
     void testNewStudentPageElements() {
         // Initialize all page objects via BasePages
         BasePages pages = new BasePages();

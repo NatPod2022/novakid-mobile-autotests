@@ -19,6 +19,7 @@ public class BasePages {
     public LoginWithPasswordPhonePage loginWithPasswordPhone;
     public PreTrialDashboardAfterCancelTrialPage preTrialDashboard;
     public OpenScheduleTabPage openScheduleTabPage;
+    public BookingOptionsPage bookingOptionsPage;
     public RightMenuListPage rightMenuListPage;
     public AccountPage accountPage;
     public LibraryPage libraryPage;
@@ -61,6 +62,7 @@ public class BasePages {
         loginWithPasswordPhone = new LoginWithPasswordPhonePage(driver);
         preTrialDashboard = new PreTrialDashboardAfterCancelTrialPage(driver);
         openScheduleTabPage = new OpenScheduleTabPage(driver);
+        bookingOptionsPage = new BookingOptionsPage(driver);
         rightMenuListPage = new RightMenuListPage(driver);
         accountPage = new AccountPage(driver);
         libraryPage = new LibraryPage(driver);

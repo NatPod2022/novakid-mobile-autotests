@@ -14,14 +14,14 @@ class LaunchAppTest extends AppiumBaseTest {
 
     @Test
     @DisplayName("app launches successfully")
-    // Test Case #0
+    // Smoke check; not a separate catalog test case
     void appLaunches() {
         assertNotNull(driver, "Driver should be initialized after app launch");
     }
 
     @Test
     @DisplayName("first screen permission elements are present")
-    // Test Case #1
+    // Smoke coverage for the first screen; catalog case #1 is FirstScreenTest
     void firstScreenElementsPresent() {
         // Initialize all page objects via BasePages
         BasePages pages = new BasePages();
