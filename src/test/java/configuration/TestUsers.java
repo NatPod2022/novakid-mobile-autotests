@@ -38,6 +38,16 @@ public final class TestUsers {
         );
     }
 
+    /** User for Courses tab tests. The email must not be replaced by the schedule email override. */
+    public static TestUser courses() {
+        TestUser scheduleUser = schedule();
+        return new TestUser(
+                "ments@novakihool.com",
+                scheduleUser.password(),
+                scheduleUser.studentId()
+        );
+    }
+
     /**
      * User with lessons on balance (i.e. has a populated schedule).
      * Used for teacher / schedule related tests.

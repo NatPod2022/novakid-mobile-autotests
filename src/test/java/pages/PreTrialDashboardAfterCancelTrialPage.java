@@ -22,6 +22,9 @@ public class PreTrialDashboardAfterCancelTrialPage extends BaseActions {
     public final By scheduleTab = AppiumBy.accessibilityId("navigation.schedule_tab");
     /** Нижняя вкладка Kids Area / Classroom: semantic ID из ParentContentPage. */
     public final By kaTab = AppiumBy.accessibilityId("navigation.kids_area_tab");
+    /** Нижняя вкладка Courses без отдельного semantic ID, расположенная справа от Kids Area. */
+    public final By coursesTab = AppiumBy.iOSNsPredicateString(
+            "type == 'XCUIElementTypeButton' AND (name CONTAINS[c] 'Courses' OR label CONTAINS[c] 'Courses')");
     public final By achievementTab = AppiumBy.accessibilityId("navigation.achievements_tab");
     public final By supportTab = AppiumBy.accessibilityId("navigation.support_tab");
 
@@ -59,6 +62,10 @@ public class PreTrialDashboardAfterCancelTrialPage extends BaseActions {
 
     public WebElement getKaTab() {
         return waitForElementPresent(kaTab, "Cannot find KA tab", 5, true);
+    }
+
+    public WebElement getCoursesTab() {
+        return waitForElementPresent(coursesTab, "Cannot find Courses tab", 5, true);
     }
 
     public WebElement getAchievementTab() {

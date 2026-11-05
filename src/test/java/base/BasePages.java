@@ -50,6 +50,7 @@ public class BasePages {
     public GoogleSyncOpenFromSchedulePage googleSyncOpenFromSchedulePage;
     public ObserveUpcomingClassesPage observeUpcomingClassesPage;
     public OpenClassDetailsPage openClassDetailsPage;
+    public CoursesPage coursesPage;
 
     public void initPages(AppiumDriver driver) {
         allowPermission = new AllowPermissionPage(driver);
@@ -93,5 +94,6 @@ public class BasePages {
         googleSyncOpenFromSchedulePage = new GoogleSyncOpenFromSchedulePage(driver);
         observeUpcomingClassesPage = new ObserveUpcomingClassesPage(driver);
         openClassDetailsPage = new OpenClassDetailsPage(driver);
+        coursesPage = new CoursesPage(driver);
     }
 }
