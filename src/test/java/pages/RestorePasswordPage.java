@@ -13,6 +13,15 @@ public class RestorePasswordPage extends BaseActions {
     public final By submitButton = AppiumBy.accessibilityId("password_reset.submit_button");
     /** Поле Email: отдельного semantic ID нет, на экране одно текстовое поле. */
     public final By emailInputField = AppiumBy.className("XCUIElementTypeTextField");
+    /**
+     * Ошибка под полем Email: LocaleKeys.invalid_email = "Please enter your email" (SignInFieldCubit.validateEmail).
+     * Отдельного semantic ID нет. Подзаголовок экрана тоже начинается с "Please enter your email.", поэтому
+     * ищем точное совпадение текста или ошибку, которую Flutter склеил с самим полем ввода.
+     */
+    public final By invalidEmailError = AppiumBy.iOSNsPredicateString(
+            "label == 'Please enter your email' OR name == 'Please enter your email' OR "
+                    + "(type == 'XCUIElementTypeTextField' AND (label CONTAINS 'Please enter your email' "
+                    + "OR value CONTAINS 'Please enter your email'))");
 
     public RestorePasswordPage(AppiumDriver driver) {
         super(driver);
@@ -24,5 +33,9 @@ public class RestorePasswordPage extends BaseActions {
 
     public WebElement getEmailInputField() {
         return waitForElementPresent(emailInputField, "Cannot find Email input field on Reset password page", 5, true);
+    }
+
+    public WebElement getInvalidEmailError() {
+        return waitForElementPresent(invalidEmailError, "Cannot find invalid email error on Reset password page", 5, true);
     }
 }

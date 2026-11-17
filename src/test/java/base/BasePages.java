@@ -52,6 +52,7 @@ public class BasePages {
     public OpenClassDetailsPage openClassDetailsPage;
     public CoursesPage coursesPage;
     public RestorePasswordPage restorePasswordPage;
+    public KidsAreaPage kidsAreaPage;
 
     public void initPages(AppiumDriver driver) {
         allowPermission = new AllowPermissionPage(driver);
@@ -97,5 +98,6 @@ public class BasePages {
         openClassDetailsPage = new OpenClassDetailsPage(driver);
         coursesPage = new CoursesPage(driver);
         restorePasswordPage = new RestorePasswordPage(driver);
+        kidsAreaPage = new KidsAreaPage(driver);
     }
 }

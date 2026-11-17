@@ -12,7 +12,7 @@ class RestorePasswordPageTest extends AppiumBaseTest {
 
     @Test
     @DisplayName("'I forgot password' opens Reset password page with email field and submit button")
-    // Test Case #47 — RestorePasswordPage (based on Test Case #6)
+    // Test Case #48 — RestorePasswordPage (based on Test Case #6)
     void testRestorePasswordPage() {
         // Initialize all page objects via BasePages
         BasePages pages = new BasePages();
