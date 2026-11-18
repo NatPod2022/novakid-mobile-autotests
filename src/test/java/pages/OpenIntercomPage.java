@@ -23,6 +23,10 @@ public class OpenIntercomPage extends BaseActions {
     public final By sendMessageButton = AppiumBy.iOSNsPredicateString("name CONTAINS 'Send us a message'");
     public final By scrollArea = AppiumBy.className("XCUIElementTypeScrollView");
     public final By closeButton = AppiumBy.iOSNsPredicateString("name CONTAINS 'Close'");
+    /** Текст в чате Intercom, который открывается по "Delete account": "Please ask your question". */
+    public final By askYourQuestionText = AppiumBy.iOSNsPredicateString(
+            "name CONTAINS[c] 'Please ask your question' OR label CONTAINS[c] 'Please ask your question' "
+                    + "OR value CONTAINS[c] 'Please ask your question'");
 
     public OpenIntercomPage(AppiumDriver driver) {
         super(driver);
@@ -82,5 +86,10 @@ public class OpenIntercomPage extends BaseActions {
 
     public WebElement getCloseButton() {
         return waitForElementPresent(closeButton, "Cannot find Close button", 5, true);
+    }
+
+    public WebElement getAskYourQuestionText() {
+        return waitForElementPresent(askYourQuestionText,
+                "Cannot find 'Please ask your question' text in Intercom chat", 10, true);
     }
 }

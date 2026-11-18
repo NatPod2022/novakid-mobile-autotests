@@ -4,7 +4,10 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import interactions.BaseActions;
+
+import java.util.Map;
 
 /**
  * Right menu (PP, Account, Subscription, Library, etc.). iOS: NSPredicate CONTAINS on name/label/value
@@ -77,6 +80,24 @@ public class RightMenuListPage extends BaseActions {
 
     public WebElement getLogOutIcon() {
         return waitForElementPresent(logOutIcon, "Cannot find Log out icon", 5, true);
+    }
+
+    /**
+     * «Log out» внизу меню и может быть за пределами экрана: элемент есть в дереве, но click() по нему не срабатывает.
+     * Поэтому сначала прокручиваем меню до кнопки (XCUITest "mobile: scroll" toVisible), потом кликаем.
+     */
+    public void clickLogOutIcon() {
+        WebElement logOut = getLogOutIcon();
+        if (!logOut.isDisplayed()) {
+            try {
+                driver.executeScript("mobile: scroll",
+                        Map.of("elementId", ((RemoteWebElement) logOut).getId(), "toVisible", true));
+            } catch (Exception e) {
+                scrollDown();
+            }
+            logOut = getLogOutIcon();
+        }
+        logOut.click();
     }
 
     public WebElement getGoButton() {
